@@ -16,14 +16,23 @@ function processOutput() {
         'Friday W1', 'Friday W2'
     ];
 
-    daySheets.forEach(sheetName => {
-        let sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
-        let rows = sheet.getRange("A2:" + sheet.getLastColumn() + sheet.getLastRow()).getValues();
-
-        rows.forEach(row => {
-            let name = row[0];
-
-            
-        })
-    })
+    let templateSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Template")
+    let templateRange = templateSheet.getRange("A1:D40")
+    let total = 0;
+    for (let i = 0; i < 40; i++) {
+        let temp = templateSheet.getRowHeight(i)
+        console.log(temp)
+        total += temp
+    }
+    //
+    // daySheets.forEach(sheetName => {
+    //     let sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
+    //     let rows = sheet.getRange("A2:" + sheet.getLastColumn() + sheet.getLastRow()).getValues();
+    //
+    //     rows.forEach(row => {
+    //         let name = row[0];
+    //
+    //
+    //     })
+    // })
 }
